@@ -721,9 +721,9 @@ void oscSend(){
   
 
   } 
-//  osctrignote
+//  osctrignote   formerKeyMetro == '$'  ||
 
-  if (formerKeyMetro == '£'  || formerKeyMetro == '*' || formerKeyMetro == 'J' || formerKeyMetro == 's' || formerKeyMetro == '@' || formerKeyMetro == 'c' ) { // trig note if TrigmodPos[i]=0
+  if (formerKeyMetro == '£' || formerKeyMetro == '*' || formerKeyMetro == 'J' || formerKeyMetro == 's' || formerKeyMetro == '@' || formerKeyMetro == 'c' ) { // trig note if TrigmodPos[i]=0
     showArray(TrigmodPos);
   // These tests used a copy of the original array so that we can perform multiple
   // test using the same working array
@@ -735,11 +735,11 @@ void oscSend(){
     } 
   
  if ( keyMode ==  " followSignalLfo "){
-    print (" trigNoteOnlyOnceFollowSignalLfo "); 
-    showArray(trigFollowSignalLfo);   
-  result = multiMatchData(0, 1, trigFollowSignalLfo.clone());
+      print (" trigNoteOnlyOnceFollowSignalLfo "); 
+      showArray(trigFollowSignalLfo);   
+      result = multiMatchData(0, 1, trigFollowSignalLfo.clone());
 //  TrigmodPos=result;
-  showArray(result); 
+      showArray(result); 
    } 
   /*
   myMessage30.add(TrigmodPos[11]);  // Trig on the right but there are bugs in pendular way

@@ -269,12 +269,16 @@ void arduinoPos() {
       // PendularLeftVirtualPosition[i]=int(1*(VirtualPosition[i])+800+1)/2%80;
       //**PendularLeftVirtualPosition[i]=VirtualPosition[i];
      //** VirtualPosition[i]= (int) map (PendularLeftVirtualPosition[i], 0, numberOfStep/2, -800, 800);
-       PendularVirtualPosition[i]= (int) map ( PendularVirtualPosition[i], -4800, -1600, -1600, 1600); // mapped at the scale in Max 4 live
-       VirtualPosition[i]= PendularVirtualPosition[i]+ActualVirtualPosition[i]; 
+       PendularVirtualPosition[i]= (int) map ( PendularVirtualPosition[i], -4800, -1600, -800, 800); // mapped at the scale in Max 4 live
+     //  VirtualPosition[i]= PendularVirtualPosition[i]+ActualVirtualPosition[i]; 
+      VirtualPosition[i]=PendularVirtualPosition[i];
+
 
 
       //   modPos[i]=int((1*(VirtualPosition[i])+800+0)/2)%80; // si 0 à 80
       modPos[i]=int((1*(VirtualPosition[i])+800+0)/2)%800; // si 0 à 800
+
+
       //    print (i); print(" PENDULAR ");print (modOldOldPos[i]);  print(" PENDULAR "); print (modOldPos[i]);print(" PENDULAR "); println (  modPos[i]);
       //print (" modOldOldPos "); print ( modOldOldPos[i]); print (" modOldPos "); print ( modOldPos[i]); print (" modPos "); println( modPos[i]); 
       if   ((modOldOldPos[i]>modOldPos[i] && modOldPos[i] >modPos[i] && modOldOldPos[i]>modOldPos[i]) ) {
@@ -309,10 +313,18 @@ void arduinoPos() {
         print(" Actual PENDULAR "); 
         println (  modPos[i]); 
         TrigmodPos[i]=0;
-      } else { 
+      }
+      
+            if   ((modOldPos[i] <= 400 && modPos[i]>= 400 ) ) {
+                  background ((i+1)*10, 127/5*(i+1), 50);
+       TrigmodPos[i]=0;
+                    text (modOldPos[i] + "    " +  modPos[i] + "  VirtualPosition " + i +  VirtualPosition[i] , 400, 400+400*i);
+
+       }
+       else { 
         TrigmodPos[i]=1;
       }
-       text ( " TrigmodPos " + i + TrigmodPos[i] , 400, 400+100*i);
+   //    text ( " TrigmodPos " + i + TrigmodPos[i] , 400, 400+100*i);
     }
   }
 
