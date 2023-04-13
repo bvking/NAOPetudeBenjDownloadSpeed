@@ -284,27 +284,35 @@ void trigEventWithAbletonSignal() {  // change de sens de propagagtion.   ATTENT
         //  keyMode = " addSignalOneAndTwoTer "; 
     if (measure == 66 && beatPrecised == 4 && beatPrecisedTrigged==true){ // && frameCount>formerFrameTrigging+1
           keyMode = " trigEventWithAbletonSignal ";
-          key= 0;
+          key= '0';
          formerKeyMetro = '*';
-         net.naturalFrequency[0]=1;
+     //    net.naturalFrequency[5]=0;
              
-      
-      
+ 
       }
      if (measure == 66 && beatPrecised == 5 && beatPrecisedTrigged==true ){ // && frameCount>formerFrameTrigging+1
           key = 'y';   
-        
-            
-             
-             
+           
       }
-    if (measure == 66 && beatPrecised == 7 && beatPrecisedTrigged==true ){ // && frameCount>formerFrameTrigging+1
-          key= 0;
-          net.naturalFrequency[1]=1;
+    if (measure == 66 && beatPrecised == 6 && beatPrecisedTrigged==true ){ // && frameCount>formerFrameTrigging+1
+       //   key= '0';
+          net.naturalFrequency[1]=0;
           key = 'y';   
-            
-               
-            
+                 
+      }
+    
+        if (measure == 66 && beatPrecised == 8 && beatPrecisedTrigged==true ){ // && frameCount>formerFrameTrigging+1
+       //   key= '0';
+          /*
+           net.naturalFrequency[0]=0;
+          net.naturalFrequency[2]=0;
+          net.naturalFrequency[4]=0;
+           net.naturalFrequency[1]=1;
+          net.naturalFrequency[3]=1;
+          net.naturalFrequency[5]=1;
+          key = 'y'; 
+          */ 
+                 
       }
     
      if (measure > 66 && measure <= 72 && beatPrecised!=0 && beatPrecisedTrigged==true ){ // && frameCount>formerFrameTrigging+1

@@ -966,8 +966,7 @@ void phasePattern() { // need standard mode to be trigged
     float [] realign = new float [networkSize];
       for (int i = 0; i < networkSize; i++) {
        realign[i] = net.phase[i]%TWO_PI;
-       net.phase[i]=  net.phase[i] - realign[i];
-       
+       net.phase[i]=  net.phase[i] - realign[i];   
       }
     }
 
@@ -975,13 +974,11 @@ void phasePattern() { // need standard mode to be trigged
       println(" Align oscillator vertically to the down  ");
       //formerKey = 'o';
 
-        float [] realign = new float [networkSize];
+    float [] realign = new float [networkSize];
       for (int i = 0; i < networkSize; i++) {
-       realign[i] = net.phase[i]%TWO_PI;
+       realign[i] = net.phase[i]%TWO_PI+PI/2;
        net.phase[i]=  net.phase[i] - realign[i];
-   
       //  net.phase[i]= 0+PI/2  ; // position 0+PI/2  
-
         printSummary(i);
       }
     }
