@@ -192,6 +192,8 @@ void arduinoPos() {
 
       if (  keyMode != " phasePattern " ) {
         for (int i = 0; i < networkSize; i++) {
+
+            
     //    VirtualPosition[i]= ActualVirtualPosition[i];   // when you change mode of movement, you add last position  DataToDueCircularVirtualPosition[i] +
       // =============== MAP PHASE To ADAPT IT TO the stepper motor    // =============== TRIG 0 when oscillator pass THROUG 0:  No effect on positions datas given to teensyport
 
@@ -219,7 +221,10 @@ void arduinoPos() {
 
        DataToDueCircularVirtualPosition[i]=CircularVirtualPosition[i];//+ActualVirtualPosition[i];
        ActualVirtualPositionFromOtherMode[i]=DataToDueCircularVirtualPosition[i];
+     //  text ( " TrigmodPos " + i + TrigmodPos[i] , 400, 400+100*i);
+
       }
+
      }
   }
 
@@ -245,8 +250,12 @@ void arduinoPos() {
 
 
     //     PendularVirtualPosition[i]= int (map (metroPhase[i], -0.5*PI, 1.5*TWO_PI, 0, numberOfStep/2)); // movement with more amplitude?
-    //  PendularVirtualPosition[i]= (int) map ( PendularVirtualPosition[i], -4800, -1600, -1600, 1600); // mapped at the scale in Max 4 live
+    //
       Pos[i]= int (map (PendularVirtualPosition[i], -1600, 1600, 0, 127)); // to Oscsend 
+
+      
+    
+
 
       DataToDueCircularVirtualPosition[i]=PendularVirtualPosition[i]+  ActualVirtualPositionFromOtherMode[i];
       ActualVirtualPosition[i]=DataToDueCircularVirtualPosition[i];
@@ -258,7 +267,11 @@ void arduinoPos() {
 
       //SET PRECISION OF MODULO
       // PendularLeftVirtualPosition[i]=int(1*(VirtualPosition[i])+800+1)/2%80;
-      //***PendularLeftVirtualPosition[i]=VirtualPosition[i];
+      //**PendularLeftVirtualPosition[i]=VirtualPosition[i];
+     //** VirtualPosition[i]= (int) map (PendularLeftVirtualPosition[i], 0, numberOfStep/2, -800, 800);
+       PendularVirtualPosition[i]= (int) map ( PendularVirtualPosition[i], -4800, -1600, -1600, 1600); // mapped at the scale in Max 4 live
+       VirtualPosition[i]= PendularVirtualPosition[i]+ActualVirtualPosition[i]; 
+
 
       //   modPos[i]=int((1*(VirtualPosition[i])+800+0)/2)%80; // si 0 à 80
       modPos[i]=int((1*(VirtualPosition[i])+800+0)/2)%800; // si 0 à 800
@@ -299,6 +312,7 @@ void arduinoPos() {
       } else { 
         TrigmodPos[i]=1;
       }
+       text ( " TrigmodPos " + i + TrigmodPos[i] , 400, 400+100*i);
     }
   }
 
