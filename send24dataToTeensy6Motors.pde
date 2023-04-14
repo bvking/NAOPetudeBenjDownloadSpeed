@@ -14,7 +14,12 @@ void send24DatasToTeensy6motors(int accelerationRatio, int driver0_On_Off, int c
 
       +  accelerationRatio +","+ driver0_On_Off +","+ computeData +","+ eraseProcessingData + ","
       
-      +0+","+0+","+0+","+0+","+0+","+0+"," +0+","+0+","+0+","+0+">";  
+    //  +0+","+0+","+0+","+0+","+0+","+0+","
+
+     +TrigmodPos[5]+","+TrigmodPos[4]+","+TrigmodPos[3]+","+TrigmodPos[2]+","+TrigmodPos[1]+","+TrigmodPos[0]+ "," // to manage 6 note or effect
+
+      
+       +0+","+0+","+0+","+0+">";  
 
      /*
       + DataToDueCircularVirtualPosition[5]+ ","+ DataToDueCircularVirtualPosition[4]+ ","+ DataToDueCircularVirtualPosition[3]+","+ DataToDueCircularVirtualPosition[2]+ ","
@@ -71,7 +76,7 @@ println(portsUSB);
 
     //*************** WITH TEENSY connected
  //teensyport = new Serial(this, ports[0], 115200);// si port non connecte Monterey mais buetooth ouvert
-    teensyport = new Serial(this, ports[0], 115200);// si port non connecte Catalina 
+    teensyport = new Serial(this, ports[1], 115200);// si port non connecte Catalina 
  //   teensyport = new Serial(this, ports[2],115200); // si port connecté Monterey
  
   //*************** WITHOUT ENODEER connected

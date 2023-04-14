@@ -18,7 +18,7 @@ float []  interpolatedAngle = new float [numberOfPointInterpolated];
 float []  netPhaseBase  = new float [networkSize];
 float []  netOldPhaseBase  = new float [networkSize];
 
-int v0, v1, v2, v3, v4, v5;
+String v0, v1, v2, v3, v4, v5;
 int incrementeX;
 
 int [] result_modulo  = new int [networkSize];
@@ -574,7 +574,7 @@ void setup() {
   fill(255, 0, 0, 50); 
   println("Start Drawing!");
   //  frameRate(45);
-  v1=counterV1=height/2;
+ 
 
   // end sampling
 

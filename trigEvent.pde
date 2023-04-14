@@ -202,16 +202,14 @@ void trigEventWithAbletonSignal() {  // change de sens de propagagtion.   ATTENT
            if (beatPrecised==0 && measure==40  ){
           key= '0';
            if (beatPrecised!=0 && beatPrecisedTrigged==true  ){
-
                key = 'r'; keyReleased();
           }
        }
       }
      
-
     // addPropragation ou alt A 
 
-      // end premiere 
+    // end premiere 
      
 
        if (positionMov == " seconde " ){    // 58 to 68
@@ -309,7 +307,7 @@ void trigEventWithAbletonSignal() {  // change de sens de propagagtion.   ATTENT
           key = 'o';   
        } 
 
-       if (measure >= 82 && beatPrecised != 0 && beatPrecisedTrigged==true ){ // && frameCount>formerFrameTrigging+1
+       if (measure > 82 && beatPrecised != 0 && beatPrecisedTrigged==true ){ // && frameCount>formerFrameTrigging+1
           key = 'r';  
           key = 'r';
           key = 'r';  

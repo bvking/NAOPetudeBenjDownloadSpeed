@@ -562,10 +562,10 @@ void oscSend(){
   OscMessage myMessage64= new OscMessage("/fromEncodeurToLive4"); // oscillator 
   OscMessage myMessage65= new OscMessage("/fromEncodeurToLive5"); // oscillato
   
- // oldEncodeur[0]= encodeur[0];
- // encodeur[0]=mouseY*2;
- // myMessage60.add(abs (map (encodeur[0], 0, 800, 0, 127)));  // send encodeur
-  myMessage60.add(fromEncodeurToLive[0]);
+  oldEncodeur[0]= encodeur[0];
+  encodeur[0]=mouseY*2;
+  myMessage60.add(abs (map (encodeur[0], 0, 800, 0, 127)));  // send encodeur
+ // myMessage60.add(fromEncodeurToLive[0]);
   myMessage61.add(fromEncodeurToLive[1]);
   myMessage62.add(fromEncodeurToLive[2]);
   myMessage63.add(fromEncodeurToLive[3]);
@@ -581,16 +581,16 @@ void oscSend(){
     + ">";
     
  
-  OscMessage myMessage20= new OscMessage("/position11"); // oscillator front
-  OscMessage myMessage21= new OscMessage("/position10"); // oscillator 
-  OscMessage myMessage22= new OscMessage("/position9"); // oscillator 
-  OscMessage myMessage23= new OscMessage("/position8"); // oscillator 
-  OscMessage myMessage24= new OscMessage("/position7"); // oscillator 
-  OscMessage myMessage25= new OscMessage("/position6"); // oscillato
-  OscMessage myMessage26= new OscMessage("/position5"); // oscillator 
-  OscMessage myMessage27= new OscMessage("/position4"); // oscillator 
-  OscMessage myMessage28= new OscMessage("/position3"); // oscillator 
-  OscMessage myMessage29= new OscMessage("/position2"); // oscillator behind
+  OscMessage myMessage20= new OscMessage("/position0"); // oscillator front
+  OscMessage myMessage21= new OscMessage("/position1"); // oscillator 
+  OscMessage myMessage22= new OscMessage("/position2"); // oscillator 
+  OscMessage myMessage23= new OscMessage("/position3"); // oscillator 
+  OscMessage myMessage24= new OscMessage("/position4"); // oscillator 
+  OscMessage myMessage25= new OscMessage("/position5"); // oscillato
+  OscMessage myMessage26= new OscMessage("/position6"); // oscillator 
+  OscMessage myMessage27= new OscMessage("/position7"); // oscillator 
+  OscMessage myMessage28= new OscMessage("/position8"); // oscillator 
+  OscMessage myMessage29= new OscMessage("/position9"); // oscillator behind
    /*
   OscMessage myMessage30= new OscMessage("/decompte11"); // oscillator SEND TRIG NOTE IN MAX4LIVE
   OscMessage myMessage31= new OscMessage("/decompte10"); // oscillator 
@@ -603,69 +603,50 @@ void oscSend(){
   OscMessage myMessage38= new OscMessage("/decompte3"); // oscillator 
   OscMessage myMessage39= new OscMessage("/decompte2"); // oscillator behind
   */
- OscMessage myMessage30= new OscMessage("/trigModPos9"); // oscillator SEND TRIG NOTE IN MAX4LIVE
-  OscMessage myMessage31= new OscMessage("/trigModPos8"); // oscillator 
-  OscMessage myMessage32= new OscMessage("/trigModPos7"); // oscillator 
-  OscMessage myMessage33= new OscMessage("/trigModPos6"); // oscillator 
-  OscMessage myMessage34= new OscMessage("/trigModPos5"); // oscillator 
-  OscMessage myMessage35= new OscMessage("/trigModPos4"); // oscillato
-  OscMessage myMessage36= new OscMessage("/trigModPos3"); // oscillator 
-  OscMessage myMessage37= new OscMessage("/trigModPos2"); // oscillator 
-  OscMessage myMessage38= new OscMessage("/trigModPos1"); // oscillator 
-  OscMessage myMessage39= new OscMessage("/trigModPos"); // oscillator behind
+  OscMessage myMessage30= new OscMessage("/trigModPos0"); // oscillator SEND TRIG NOTE IN MAX4LIVE
+  OscMessage myMessage31= new OscMessage("/trigModPos1"); // oscillator 
+  OscMessage myMessage32= new OscMessage("/trigModPos2"); // oscillator 
+  OscMessage myMessage33= new OscMessage("/trigModPos3"); // oscillator 
+  OscMessage myMessage34= new OscMessage("/trigModPos4"); // oscillator 
+  OscMessage myMessage35= new OscMessage("/trigModPos5"); // oscillato
+  OscMessage myMessage36= new OscMessage("/trigModPos6"); // oscillator 
+  OscMessage myMessage37= new OscMessage("/trigModPos7"); // oscillator 
+  OscMessage myMessage38= new OscMessage("/trigModPos8"); // oscillator 
+  OscMessage myMessage39= new OscMessage("/trigModPos9"); // oscillator behind
 
-  OscMessage myMessage40= new OscMessage("/dataToLive11"); // oscillator SEND TRIG NOTE IN MAX4LIVE
-  OscMessage myMessage41= new OscMessage("/dataToLive10"); // oscillator 
-  OscMessage myMessage42= new OscMessage("/dataToLive9"); // oscillator 
-  OscMessage myMessage43= new OscMessage("/dataToLive8"); // oscillator 
-  OscMessage myMessage44= new OscMessage("/dataToLive7"); // oscillator 
-  OscMessage myMessage45= new OscMessage("/dataToLive6"); // oscillato
-  OscMessage myMessage46= new OscMessage("/dataToLive5"); // oscillator 
-  OscMessage myMessage47= new OscMessage("/dataToLive4"); // oscillator 
-  OscMessage myMessage48= new OscMessage("/dataToLive3"); // oscillator 
-  OscMessage myMessage49= new OscMessage("/dataToLive2"); // oscillator behind
+  OscMessage myMessage40= new OscMessage("/dataToLive0"); // oscillator SEND TRIG NOTE IN MAX4LIVE
+  OscMessage myMessage41= new OscMessage("/dataToLive1"); // oscillator 
+  OscMessage myMessage42= new OscMessage("/dataToLive2"); // oscillator 
+  OscMessage myMessage43= new OscMessage("/dataToLive3"); // oscillator 
+  OscMessage myMessage44= new OscMessage("/dataToLive4"); // oscillator 
+  OscMessage myMessage45= new OscMessage("/dataToLive5"); // oscillato
+  OscMessage myMessage46= new OscMessage("/dataToLive6"); // oscillator 
+  OscMessage myMessage47= new OscMessage("/dataToLive7"); // oscillator 
+  OscMessage myMessage48= new OscMessage("/dataToLive8"); // oscillator 
+  OscMessage myMessage49= new OscMessage("/dataToLive9"); // oscillator behind
  
-  OscMessage myMessage50= new OscMessage("/acceleration11"); // oscillator SEND ACCELERATION
-  OscMessage myMessage51= new OscMessage("/acceleration10"); // oscillator 
-  OscMessage myMessage52= new OscMessage("/acceleration9"); // oscillator 
-  OscMessage myMessage53= new OscMessage("/acceleration8"); // oscillator 
-  OscMessage myMessage54= new OscMessage("/acceleration7"); // oscillator 
-  OscMessage myMessage55= new OscMessage("/acceleration6"); // oscillato
-  OscMessage myMessage56= new OscMessage("/acceleration5"); // oscillator 
-  OscMessage myMessage57= new OscMessage("/acceleration4"); // oscillator 
-  OscMessage myMessage58= new OscMessage("/acceleration3"); // oscillator 
-  OscMessage myMessage59= new OscMessage("/acceleration2"); // oscillator behind
- // OscMessage myMessage60= new OscMessage("/acceleration1"); // oscillator behind
+  OscMessage myMessage50= new OscMessage("/acceleration0"); // oscillator SEND ACCELERATION
+  OscMessage myMessage51= new OscMessage("/acceleration1"); // oscillator 
+  OscMessage myMessage52= new OscMessage("/acceleration2"); // oscillator 
+  OscMessage myMessage53= new OscMessage("/acceleration3"); // oscillator 
+  OscMessage myMessage54= new OscMessage("/acceleration4"); // oscillator 
+  OscMessage myMessage55= new OscMessage("/acceleration5"); // oscillato
+  OscMessage myMessage56= new OscMessage("/acceleration6"); // oscillator 
+  OscMessage myMessage57= new OscMessage("/acceleration7"); // oscillator 
+  OscMessage myMessage58= new OscMessage("/acceleration8"); // oscillator 
+  OscMessage myMessage59= new OscMessage("/acceleration9"); // oscillator behind
 
 
 
+  myMessage20.add(Pos[0]);
+  myMessage21.add(Pos[1]);
+  myMessage22.add(Pos[2]);
+  myMessage23.add(Pos[3]);
+  myMessage24.add(Pos[4]);
+  myMessage25.add(Pos[5]);
 
- 
- /*
-  myMessage20.add(Pos[9]);
-  myMessage21.add(Pos[8]);
-  myMessage22.add(Pos[7]);
-  myMessage23.add(Pos[6]);
-  myMessage24.add(Pos[5]);
-  myMessage25.add(Pos[4]);
-  myMessage26.add(Pos[3]);
-  myMessage27.add(Pos[2]);
-  myMessage28.add(Pos[1]);
-  myMessage29.add(Pos[0]);
-*/  
-//  print ("Pos11");   println (Pos[11]); println (Pos[11]); println (Pos[11]); println (Pos[11]); 
-/*
-  myMessage20.add(Pos[11]);
-  myMessage21.add(Pos[10]);
-  myMessage22.add(Pos[9]);
-  myMessage23.add(Pos[8]);
-  myMessage24.add(Pos[7]);
-  myMessage25.add(Pos[6]);
-*/
-  myMessage26.add(Pos[5]);
-  myMessage27.add(Pos[4]);
-  myMessage28.add(Pos[3]);
-  myMessage29.add(Pos[2]);
+
+
 /*  
   myMessage30.add(Pos[9]);
   myMessage31.add(Pos[8]);
@@ -711,11 +692,13 @@ void oscSend(){
   myMessage38.add(TrigmodPos[1]);
   myMessage39.add(TrigmodPos[0]);
 */
-    myMessage36.add(revolution[5]);
+
+/*
+  myMessage36.add(revolution[5]);
   myMessage37.add(revolution[4]);
   myMessage38.add(revolution[3]);
   myMessage39.add(revolution[2]);
-
+*/
  textSize (100);
   text ( " revolution in osc " + 0 + " " + revolution[0], -500, 0+100*1);
   
@@ -723,7 +706,7 @@ void oscSend(){
   } 
 //  osctrignote   formerKeyMetro == '$'  ||
 
-  if (formerKeyMetro == '£' || formerKeyMetro == '*' || formerKeyMetro == 'J' || formerKeyMetro == 's' || formerKeyMetro == '@' || formerKeyMetro == 'c' ) { // trig note if TrigmodPos[i]=0
+  if (formerKeyMetro == '£' || formerKeyMetro == '*' || formerKeyMetro == '$'  || formerKeyMetro == 'J' || formerKeyMetro == 's' || formerKeyMetro == '@' || formerKeyMetro == 'c' ) { // trig note if TrigmodPos[i]=0
     showArray(TrigmodPos);
   // These tests used a copy of the original array so that we can perform multiple
   // test using the same working array
@@ -742,12 +725,12 @@ void oscSend(){
       showArray(result); 
    } 
   /*
-  myMessage30.add(TrigmodPos[11]);  // Trig on the right but there are bugs in pendular way
-  myMessage31.add(TrigmodPos[10]);
-  myMessage32.add(TrigmodPos[9]);
-  myMessage33.add(TrigmodPos[8]);
-  myMessage34.add(TrigmodPos[7]);
-  myMessage35.add(TrigmodPos[6]);
+  myMessage30.add(TrigmodPos[0]);  // Trig on the right but there are bugs in pendular way
+  myMessage31.add(TrigmodPos[1]);
+  myMessage32.add(TrigmodPos[2]);
+  myMessage33.add(TrigmodPos[3]);
+  myMessage34.add(TrigmodPos[4]);
+  myMessage35.add(TrigmodPos[5]);
   */
   int trigMute;
   trigMute=1;
@@ -756,13 +739,20 @@ if (TrigmodPos[0]==0|| TrigmodPos[1]==0 || TrigmodPos[2]==0 || TrigmodPos[3]==0 
 trigMute= 0;
    } 
 
-  text ( " trigMute " + trigMute,  100, 100);
-/// myMessage36.add(TrigmodPos[5]);
+  text ( " trigMute " + trigMute,  100, 1700);
+  myMessage30.add(TrigmodPos[0]);  // Trig on the right but there are bugs in pendular way
+  myMessage31.add(TrigmodPos[1]);
+  myMessage32.add(TrigmodPos[2]);
+  myMessage33.add(TrigmodPos[3]);
+  myMessage34.add(TrigmodPos[4]);
+  myMessage35.add(TrigmodPos[5]);
   myMessage36.add(trigMute);
-  myMessage37.add(TrigmodPos[4]);
-  myMessage38.add(TrigmodPos[3]);
-  myMessage39.add(TrigmodPos[2]);
-  text ( " TrigmodPos[2] " + TrigmodPos[2],  100, 0);
+  /*
+  myMessage37.add(TrigmodPos[6]);
+  myMessage38.add(TrigmodPos[7]);
+  myMessage39.add(TrigmodPos[8]);
+  */
+ // text ( " TrigmodPos[2] " + TrigmodPos[2],  100, 100);
  // println (" NOTE TRIGGED FROM OSCSEND ");
  
   /*
@@ -837,6 +827,8 @@ trigMute= 0;
   oscP5.send(myMessage27, myRemoteLocationII);
   oscP5.send(myMessage28, myRemoteLocationII);
   oscP5.send(myMessage29, myRemoteLocationII);
+
+
    //  END TO USE, NOT BELOW, END OF UNCOMMENT
   
   //*** /*

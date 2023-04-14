@@ -9,7 +9,7 @@ void addSignalOneAndTwoTer() { // inspireé de quater . splitTimeQuater A reconf
 
          //  moveKeys[8]=true;
          //  moveKeys[12]=true;
-         keyMode = " trigEventWithAbletonSignal ";
+        keyMode = " trigEventWithAbletonSignal ";
         trigEventWithAbletonSignal();
               positionMov = " troisieme " ;
           } 

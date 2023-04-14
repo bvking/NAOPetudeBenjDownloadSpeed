@@ -202,20 +202,20 @@ void arduinoPos() {
         CircularVirtualPosition[i]= int (map (net.phase[i], 0, TWO_PI, 0, numberOfStep));
         Pos[i]= int (map (net.phase[i], 0, TWO_PI, 0, 127)); // to Oscsend
         
-     if ((CircularVirtualPosition[i]>3199 && CircularOldVirtualPosition[i]<3200 && CircularOldVirtualPosition[i]>201  )
-          || (CircularVirtualPosition[i]<3201 && CircularOldVirtualPosition[i]>3200 && CircularVirtualPosition[i]>201  )  ) {
-
+     if ((CircularVirtualPosition[i]%numberOfStep>3199 && CircularOldVirtualPosition[i]%numberOfStep<3200 && CircularOldVirtualPosition[i]%numberOfStep>201  )
+          || (CircularVirtualPosition[i]%numberOfStep<3201 && CircularOldVirtualPosition[i]%numberOfStep>3200 && CircularVirtualPosition[i]%numberOfStep>201  )  ) {
+   //   background ((i+1)*10, 127/5*(i+1), 50);
        TrigmodPos[i]=0;     
        print (i);  print(" CIRCULAR PASS CLOCKWISE THROUG 0: "); println (  TrigmodPos[i]=0); print (" virt ");  println (  VirtualPosition[i]); print (" Cirvirt "); print(  CircularVirtualPosition[i]); print (" CirOldvirt "); println (  CircularOldVirtualPosition[i]);
         } else  TrigmodPos[i]=1;
       } else {
-        CircularOldVirtualPosition[i]=CircularVirtualPosition[i]; 
+        CircularOldVirtualPosition[i]=CircularVirtualPosition[i]%numberOfStep; 
         CircularVirtualPosition[i]= int (map (net.phase[i], 0, -TWO_PI, numberOfStep, 0));  
-        Pos[i]= int (map (net.phase[i], 0, -TWO_PI, 127, 0));  // to Oscsend  
+        Pos[i]= int (map (net.phase[i], 0, -TWO_PI, 127, 0))*-1;  // to Oscsend  
 
-    if ((CircularVirtualPosition[i]<3201 && CircularOldVirtualPosition[i]>3200 )   ) {
+    if ((CircularVirtualPosition[i]%numberOfStep<3201 && CircularOldVirtualPosition[i]%numberOfStep>3200 )   ) {
        TrigmodPos[i]=0; print (i); print(" CIRCULAR PASS CLOCKWISE THROUG 0: ");  println (  TrigmodPos[i]=0); print (" virt ");  println (  VirtualPosition[i]); print (" Cirvirt "); print(  CircularVirtualPosition[i]); print (" CirOldvirt "); println (  CircularOldVirtualPosition[i]);
-
+     // background ((i+1)*10, 127/5*(i+1), 50);
         } else  TrigmodPos[i]=1;
       } 
 
@@ -269,7 +269,9 @@ void arduinoPos() {
       // PendularLeftVirtualPosition[i]=int(1*(VirtualPosition[i])+800+1)/2%80;
       //**PendularLeftVirtualPosition[i]=VirtualPosition[i];
      //** VirtualPosition[i]= (int) map (PendularLeftVirtualPosition[i], 0, numberOfStep/2, -800, 800);
-       PendularVirtualPosition[i]= (int) map ( PendularVirtualPosition[i], -4800, -1600, -800, 800); // mapped at the scale in Max 4 live
+       PendularVirtualPosition[i]= (int) map ( PendularVirtualPosition[i], -4800, -1600, -800, 800); // mapped at the scale in Max 4 live // GOOD to trig 0 when balls are in the middle
+     //         PendularVirtualPosition[i]= (int) map ( PendularVirtualPosition[i], -4800, -1600, -4800, -1600); // mapped at the scale in Max 4 live // GOOD ? NO
+
      //  VirtualPosition[i]= PendularVirtualPosition[i]+ActualVirtualPosition[i]; 
       VirtualPosition[i]=PendularVirtualPosition[i];
 
@@ -313,12 +315,17 @@ void arduinoPos() {
         print(" Actual PENDULAR "); 
         println (  modPos[i]); 
         TrigmodPos[i]=0;
+                            text (modOldPos[i] + "    " +  modPos[i] + "  VirtualPosition " + i +  VirtualPosition[i] , 400, 400+400*i);
+
       }
       
-            if   ((modOldPos[i] <= 400 && modPos[i]>= 400 ) ) {
-                  background ((i+1)*10, 127/5*(i+1), 50);
+            if   ((modOldPos[i] <= 400 && modPos[i]>= 400) ||
+            (modOldPos[i] >= 400 && modPos[i]<= 400)
+            
+            ) {
+                //  background ((i+1)*10, 127/5*(i+1), 50);
        TrigmodPos[i]=0;
-                    text (modOldPos[i] + "    " +  modPos[i] + "  VirtualPosition " + i +  VirtualPosition[i] , 400, 400+400*i);
+              //      text (modOldPos[i] + "    " +  modPos[i] + "  VirtualPosition " + i +  VirtualPosition[i] , 400, 400+400*i);
 
        }
        else { 
@@ -425,21 +432,14 @@ void arduinoPos() {
         oldVelocityBis[i] = velocityBis[i];
      //**   velocityBis[i] = (net.phase[i] - net.oldPhase[i]) / 1;
         velocityBis[i] = (phaseAcceleration[i] - oldPhaseAcceleration[i]) / 1;
-   //   VelocityI[i]=velocity[i];
-      // Update acceleration
+
         accelerationBis[i] = (velocityBis[i] - oldVelocityBis[i]) / 1;
         
-        mapAcceleration[i]= constrain ((int (map (abs(accelerationBis[i] *100), -100, 100, 0, 127))), 0, 127); 
-   
-  //      print(" velocityBis "); print (i);  print (" ");  print(velocityBis[i]); print (" "); 
-        
- //       print(" acc  "); print (i);  print (" "); print(accelerationBis[i]); print(" "); 
-        
- //       print(" mapAcc  "); print (i);  print (" "); print(mapAcceleration[i]); println(" "); 
-        
+        mapAcceleration[i]= constrain ((int (map (abs(accelerationBis[i] *100), -100, 100, 0, 127))), 0, 127);    
        }
-       rotate (HALF_PI);
-        text ( "velocityBis[0] " + velocityBis[0], -700, 900 );
+        rotate (HALF_PI);
+        text ( "vel[0] " + velocityBis[0] , -700, 1500 );
+        text ( "Acc[0]" + mapAcceleration[0], -700, 1600 );
         rotate (-HALF_PI);
       }  
       
@@ -527,6 +527,9 @@ void arduinoPos() {
     
 
     +cohesionCounterLow +","+ cohesionCounterHigh +","+ int (map (LevelCohesionToSend, 0, 1, 0, 100))+">"; //    cohesionCounterHigh // +orderCohesion+ ">";LevelCohesionToSend ","+ int (map ( LowLevelCohesionToSend, 0, 1, 0, 100))+ 
+
+
+
 
   if (keyMode == " phasePattern ") {
      for (int i = 0; i < networkSize-0; i++) {

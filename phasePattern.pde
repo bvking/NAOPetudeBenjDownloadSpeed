@@ -753,7 +753,7 @@ void phasePattern() { // need standard mode to be trigged
 
       //  net.phase[i] -=(9-i)*0.05;
       //   net.phase[i] -=(networkSize-1-i)*0.05; // oscillator 11 do not move
-      net.phase[i] -= (networkSize- oscillatorBlocked-i)*0.05;
+      net.phase[i] -= (networkSize-1- oscillatorBlocked-i)*0.05; // if oscillatorBlocked=0; net.phase[5] doesn't move
     //  net.phase[i]=  net.phase[i]%TWO_PI;
 
       printSummary(i);
@@ -775,7 +775,7 @@ void phasePattern() { // need standard mode to be trigged
       //       net.phase[i] -=i*0.01;
       //         net.phase[i] -=i*0.05;
 
-      net.phase[i] -=      (oscillatorBlocked+i)*0.05;
+      net.phase[i] -=      (oscillatorBlocked+i)*0.05;       //if oscillatorBlocked=0; net.phase[0] doesn't move
       net.phase[i]=  net.phase[i]%TWO_PI;
       key='#';
       printSummary(i);
