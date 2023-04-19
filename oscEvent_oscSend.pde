@@ -555,7 +555,7 @@ void oscSend(){
 
  
 
-  OscMessage myMessage60= new OscMessage("/fromEncodeurToLive0"); // oscillator SEND ACCELERATION
+  OscMessage myMessage60= new OscMessage("/fromEncodeurToLive0"); // oscillator SEND position
   OscMessage myMessage61= new OscMessage("/fromEncodeurToLive1"); // oscillator 
   OscMessage myMessage62= new OscMessage("/fromEncodeurToLive2"); // oscillator 
   OscMessage myMessage63= new OscMessage("/fromEncodeurToLive3"); // oscillator 
@@ -635,6 +635,22 @@ void oscSend(){
   OscMessage myMessage57= new OscMessage("/acceleration7"); // oscillator 
   OscMessage myMessage58= new OscMessage("/acceleration8"); // oscillator 
   OscMessage myMessage59= new OscMessage("/acceleration9"); // oscillator behind
+
+  OscMessage myMessage70= new OscMessage("/encoderTouched0"); //  SEND 1 oscillatorTouched
+  OscMessage myMessage71= new OscMessage("/encoderTouched1"); // oscillator 
+  OscMessage myMessage72= new OscMessage("/encoderTouched2"); // oscillator 
+  OscMessage myMessage73= new OscMessage("/encoderTouched3"); // oscillator 
+  OscMessage myMessage74= new OscMessage("/encoderTouched4"); // oscillator 
+  OscMessage myMessage75= new OscMessage("/encoderTouched5"); // oscillato
+  OscMessage myMessage76= new OscMessage("/encoderTouched6"); // oscillator 
+
+  myMessage70.add(encoderTouched[0]);
+  myMessage71.add(encoderTouched[1]);
+  myMessage72.add(encoderTouched[2]);
+  myMessage73.add(encoderTouched[3]);
+  myMessage74.add(encoderTouched[4]);
+  myMessage75.add(encoderTouched[5]);
+
 
 
 
@@ -857,13 +873,21 @@ trigMute= 0;
   oscP5.send(myMessage49, myRemoteLocation);
   oscP5.send(myMessage50, myRemoteLocation);
 
- // encodeur
+ // encodeur position
   oscP5.send(myMessage60, myRemoteLocation);
   oscP5.send(myMessage61, myRemoteLocation);
   oscP5.send(myMessage62, myRemoteLocation);
   oscP5.send(myMessage63, myRemoteLocation);
   oscP5.send(myMessage64, myRemoteLocation);
   oscP5.send(myMessage65, myRemoteLocation);
+
+  // encodeur moved
+  oscP5.send(myMessage70, myRemoteLocation);
+  oscP5.send(myMessage71, myRemoteLocation);
+  oscP5.send(myMessage72, myRemoteLocation);
+  oscP5.send(myMessage73, myRemoteLocation);
+  oscP5.send(myMessage74, myRemoteLocation);
+  oscP5.send(myMessage75, myRemoteLocation);
 
    // myRemoteLocationII port 8002
   

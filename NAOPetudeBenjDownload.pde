@@ -86,7 +86,7 @@ boolean trigEffectBis;
 void draw() {
 
  println ("  oldEncodeur[0] " +   oldEncodeur[0] + " v1 " + v1 + " v2 " + v2 + " v3 " + v3 + " v4 " + v4 +  " v5 " + v5); 
- println ("  encodeur[0] " +  encodeur[0] + " v1 " + v1 + " v2 " + v2 + " v3 " + v3 + " v4 " + v4 +  " v5 " + v5); 
+ println ("  encodeur[0] " +  encodeur[0] + " encoderTouched[0] " + encoderTouched[0] + " v2 " + v2 + " v3 " + v3 + " v4 " + v4 +  " v5 " + v5); 
 
 
   showArray (encodeur);

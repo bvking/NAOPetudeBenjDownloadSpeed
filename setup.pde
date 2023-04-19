@@ -9,6 +9,8 @@ import java.util.Arrays;
 int networkSize = 6;
 int nbBalls=networkSize;
 
+int [] encoderTouched = new int [networkSize];
+
 float log10 (float x) {
   return (log(x) / log(10));
 }
@@ -52,6 +54,8 @@ float interpolatedX, interpolatedY;
 import processing.serial.*;
 Serial encoderReceiveUSBport101; // The native serial port of the DUE fibish with 101
 Serial teensyport;
+
+ int [] formerFrameCountFromSerialEvent = new int [networkSize];
 
 String dataTransformed ;
 String dataFromMode ;
