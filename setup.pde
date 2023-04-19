@@ -572,8 +572,7 @@ void frameStop() {
 void setup() {
   sampler = new Sampler();
 
-  LastTimeMiddleElapsed=1980;
-  LastTimeElapsed=4000-20;
+ 
   //  noStroke();
   fill(255, 0, 0, 50); 
   println("Start Drawing!");
@@ -670,7 +669,7 @@ void setup() {
 
   //********************  fichier vierge
  //  lines = loadStrings("vierge.txt");
-   lines = loadStrings("viergechar.txt");
+ //***  lines = loadStrings("viergechar.txt");
   // lines = loadStrings("madrushstart.txt");
   //**** readOneLine(); // play case frame by frame. Uncomment if you want play in live
   textSize(200);
