@@ -109,6 +109,7 @@ void trigEventWithAbletonSignal() {  // change de sens de propagagtion.   ATTENT
            }
               
       if (  positionMov == " premierePartie "){
+         if (measure<110){
        if (measure<41  || measure>=42 ){
         if (beatPrecised%2==0 && beatPrecisedTrigged==true  ){ // signalToSplit>0.5 && // && millis()> timeToTrig+delayTimeToTrig
       oscillatorBlocked=5;
@@ -197,6 +198,7 @@ void trigEventWithAbletonSignal() {  // change de sens de propagagtion.   ATTENT
        }
       }
       }
+     }// end premeiere partie
 // TYRANSITION
          if (measure>40  && measure<=42 ){
            if (beatPrecised==0 && measure==40  ){

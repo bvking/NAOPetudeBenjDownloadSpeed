@@ -19,13 +19,13 @@ void addSignalOneAndTwoTer() { // inspireé de quater . splitTimeQuater A reconf
   // lfoPattern(); // if ive is not open  //lfoPattern(); // if Live is not open
     // if you dob't use this, uncomment signal2 in addSignalLfoPattern()
      textSize (100);
-     text ("Change mode q, z, or stop progation with b ", -width-200, -height- 600-500 );
-     text ("signal2 " + signal[2], -width-200, -height- 500-500 );
- //    text ("signal3 " + signal[3], -width-200, -height- 400-500 );
-     text (" oldSignalToSplit " + oldSplitTime + " splitTime " +  splitTime + " timeLFO " + timeLfo,  -width-200, -height- 400-500 );
-     text (" oldSignalToSplit " + oldSignalToSplit + " signalToSplit " +     signalToSplit + " timeLFO " + timeLfo,  -width-200, -height- 300-500 );
-     text (" oscillatorChange " + oscillatorChange + " oscillatorChanging " + phaseKeptAtChange[oscillatorChanging], -width-200, -height- 200-500 );
-     text (" propagationSpeed " + propagationSpeed + " key " + key + " startZ " + startZ, -width-200, -height- 100-500 );
+     text ("Change mode q, z, or stop progation with b ", -width-200, -height- 1600-500 );
+     text ("signal2 " + signal[2], -width-200, -height- 1500-500 );
+ //    text ("signal3 " + signal[3], -width-200, -height- 1400-500 );
+     text (" oldSignalToSplit " + oldSplitTime + " splitTime " +  splitTime + " timeLFO " + timeLfo,  -width-200, -height- 1400-500 );
+     text (" oldSignalToSplit " + oldSignalToSplit + " signalToSplit " +     signalToSplit + " timeLFO " + timeLfo,  -width-200, -height- 1300-500 );
+     text (" oscillatorChange " + oscillatorChange + " oscillatorChanging " + phaseKeptAtChange[oscillatorChanging], -width-200, -height- 1200-500 );
+     text (" propagationSpeed " + propagationSpeed + " key " + key + " startZ " + startZ, -width-200, -height- 100-1500 );
       
    if (key=='q' || key=='b' || key=='z' ) { // q == addsignal
      letter = key;   

@@ -442,11 +442,11 @@ for (int i = 0; i < networkSize; i++) {
     }
     break;
     case 'f':   
-     formerKeyMetro = '@';  
+    // formerKeyMetro = '@';  
     modeStartKeyToFollow = " followSignalfo ";
         print ( " modeStartKeyToFollow " );
 
-    text ( modeStartKeyToFollow, width/4, -height/4); 
+    text ( modeStartKeyToFollow + " follow  signal " + (networkSize-1)+ " "  + signal[networkSize-1], width/4, -height/4); 
     followSignalLfo(frameRatio, signal[networkSize-1]);
     break;
 

@@ -1,14 +1,14 @@
 void propagationMode(){ // as addSignalOneAndTwoQuater() in NAOP 
 
      textSize (100);
-     text ( " oscillatorChanged " + oscillatorChanged +  " Change mode q, z, or stop progation with b ", -width-200, -height- 600 );
-     text ("signal2 " +nf(signal[2], 0, 2) + "signal3 " +nf(signal[3], 0, 2) + "signal5 " +nf(signal[5], 0, 2), -width-200, -height- 500 );
+     text ( " oscillatorChanged " + oscillatorChanged +  " Change mode q, z, or stop progation with b ", -width-200, -height- 2600 );
+     text ("signal2 " +nf(signal[2], 0, 2) + "signal3 " +nf(signal[3], 0, 2) + "signal5 " +nf(signal[5], 0, 2), -width-200, -height- 2500 );
   
  //    text (" oldSignalToSplit " + oldSplitTime + " splitTime " +  splitTime + " timeLFO " + timeLfo,  -width-200, -height- 400 );
  //    text (" oldSignalToSplit " + nf (oldSignalToSplit, 0, 2) + " signalToSplit " +     nf (signalToSplit, 0, 2) + " timeLFO " + timeLfo,  -width-200, -height- 300 );
 //   text (" oldOscillatorChange " + oldOscillatorChange + " oscillatorChange " + oscillatorChange + " j " + nf (phaseKeptAtChange[oscillatorChange]/TWO_PI*360%360, 0, 2), -width-200, -height- 400 );
 //   text (" oldOscillatorChange " + (oldOscillatorChange+1)%6 + " oscillatorChange " + (oscillatorChange+1)%6 + " j " + nf (phaseKeptAtChange[(oscillatorChange+1)%6]/TWO_PI*360%360, 0, 2), -width-200, -height- 300 );
-   text (" propagationSpeed " + propagationSpeed + " key " + key, -width-200, -height- 200 );
+   text (" propagationSpeed " + propagationSpeed + " key " + key, -width-200, -height- 2200 );
      
    if (key=='q' || key=='b' || key=='z' ) { // q == addsignal
      letter = key;   

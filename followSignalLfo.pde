@@ -44,17 +44,17 @@ if (formerDecayTime>decayTime){
 
 
  
-   for (int i = 2; i < networkSize; i+=1) {// display ball   (nbBall/2)-0; i < nbBall; i++   for (int i = 3; i < net.size()-0; i+=1) {
+   for (int i = 0; i < networkSize; i+=1) {// display ball   (nbBall/2)-0; i < nbBall; i++   for (int i = 3; i < net.size()-0; i+=1) {
  //    print (net.oldPhase[i]); print (" 12448 ");   println (net.phase[i]); 
  //   net.oldPhase[i]=phaseMapped[i];
-    phaseMapped[i]=phases[i-2][frameCountBis % nbMaxDelais]; // use varaible phaseMapped (to play movement with time delay or phase delay) to well send it in Teensy
+    phaseMapped[i]=phases[i-0][frameCountBis % nbMaxDelais]; // use varaible phaseMapped (to play movement with time delay or phase delay) to well send it in Teensy
   //  phaseMapped[i] =  phaseMapped[i]%TWO_PI; 
   }
  
 
   if (formerFormerKey == '#' ) {
   
-      for (int i = 2; i < networkSize-0; i+=1) { 
+      for (int i = 0; i < networkSize-0; i+=1) { 
         
   ////*****  phaseMappedFollow[i] = phaseMapped[i];
  //   phaseMapped[i] = phaseMappedFollow[i]+phaseMapped[i];
@@ -94,7 +94,7 @@ if (formerDecayTime>decayTime){
   //**  print ("  signal 11  ");    println ( phaseMapped[oscillatorChange]  ); 
   //***  println ("  phaseMapped[i]  ");    println ( phaseMapped[oscillatorChange]  ); 
     
-     for (int i = 2; i < networkSize; i+=1) { 
+     for (int i = 0; i < networkSize; i+=1) { 
     if (phaseMapped[i]<0){
    
      DataToDueCircularVirtualPosition[i]= int (map (phaseMapped[i], 0, -TWO_PI, numberOfStep, 0)); 
@@ -383,7 +383,7 @@ if (formerDecayTime>decayTime){
 
     println(frameCount + ": " +  " FOLLOWSIGNALToTeensyNoJo" + ( dataMarkedToTeensyNoJo ));
   //  encoderReceiveUSBport101.write(dataMarkedToTeensyNoJo);// Send data to Arduino.
-   teensyport.write(dataMarkedToTeensyNoJo); // Send data to Teensy. only the movement
+ //  teensyport.write(dataMarkedToTeensyNoJo); // Send data to Teensy. only the movement
 //  sendToTeensyTurnOnDriver();
   
 }

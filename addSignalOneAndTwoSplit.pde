@@ -1,6 +1,6 @@
 void addSignalOneAndTwo(){
     print (formerKeyMetro);
-    text ( " One And Two Original oscillatorChange" + oscillatorChange , 400, 800);
+    text ( " One And Two Original oscillatorChange " + oscillatorChange , -1600, height+800);
     lfoPattern();
 
    if (key=='q' || key=='b' || key=='z' ) { // q == addsignal
@@ -177,44 +177,17 @@ void addSignalOneAndTwo(){
      print (" revoLFO "); print ( i); print ("  "); println (revLfo[i]); 
      
      
-     text ("count", -1600, height-500 - 75*i);
-     text ( revLfo[i], -1400, height-500 - 75*i);
+     text ("count " + revLfo[i], -1600, height-500 - 75*i);
+   
    
     
      }
-     text (" restart ALT Z , cf signal[2] )", -1600, height-300 );  
-     text ( signal[2], -400, height-300);`
+     text (" restart ALT Z , cf signal[2] )" + signal[2], -1600, height+800 );  
+   
      oscSend();
      assignMotorWithPosition();
-     
-    for (int i = 0; i < networkSize; i++) {
-//DataToDueCircularVirtualPosition[i] = DataToDueCircularVirtualPosition[networkSize-i]+ recordLastDataOfMotorPosition[i];
-  //   DataToDueCircularVirtualPosition[i] = DataToDueCircularVirtualPosition[i]+ 10;
-  // DataToDueCircularVirtualPosition[i]+=10;
-   }
-      
-    int speedDelta=10;
-    int driverOnOff=3;
-    int dataToTeensyNoJo=-3; // trig noJoe in Teensy
-    String dataMarkedToTeensyNoJo  ="<" // BPM9   
+     send24DatasToTeensy6motors(10, 3, -3, -1);
 
-      //  DataToDueCircularVirtualPosition[11]+ ","+DataToDueCircularVirtualPosition[10]+","+DataToDueCircularVirtualPosition[9]+","+DataToDueCircularVirtualPosition[8]+","+DataToDueCircularVirtualPosition[7]+","
-      //+   DataToDueCircularVirtualPosition[6]+  ","+DataToDueCircularVirtualPosition[5]+","+DataToDueCircularVirtualPosition[4]+","+DataToDueCircularVirtualPosition[3]+","+DataToDueCircularVirtualPosition[2]+","
-      + DataToDueCircularVirtualPosition[5]+"," +   DataToDueCircularVirtualPosition[4]+ ","+DataToDueCircularVirtualPosition[3]+","+DataToDueCircularVirtualPosition[2]+","+DataToDueCircularVirtualPosition[1]+","+DataToDueCircularVirtualPosition[0]+","
-    //  + DataToDueCircularVirtualPosition[4]+  ","+DataToDueCircularVirtualPosition[3]+","+DataToDueCircularVirtualPosition[2]+","+DataToDueCircularVirtualPosition[1]+","+DataToDueCircularVirtualPosition[0]+","
-
-       +0+","+0+","+0+","+0+","
-      +  (speedDelta) +","+ driverOnOff +","+dataToTeensyNoJo+","
-        
-   //   + TrigmodPos[11]+","+TrigmodPos[10]+","+TrigmodPos[9]+","+TrigmodPos[8]+","+TrigmodPos[7]+","+TrigmodPos[6]+","
-    +TrigmodPos[5]+","+TrigmodPos[4]+","+TrigmodPos[3]+","+TrigmodPos[2]+","+TrigmodPos[1]+","+TrigmodPos[0]+ ">";  // to manage 12 note
-
- //     +0+","+0+","+0+","+0+","+0+","+0+","+0+","+0+","+0+","+0+","+0+">";    
-
-    println(frameCount + ": " +  " addSignalDataMarkedToTeensyNoJo" + ( dataMarkedToTeensyNoJo ));
-  //  encoderReceiveUSBport101.write(dataMarkedToTeensyNoJo);// Send data to Arduino.
-   // teensyport.write(dataMarkedToTeensyNoJo); // Send data to Teensy. only the movement
-   
 }
  
  
