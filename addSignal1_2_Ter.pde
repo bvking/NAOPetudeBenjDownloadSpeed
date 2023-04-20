@@ -54,14 +54,23 @@ void addSignalOneAndTwoTer() { // inspireé de quater . splitTimeQuater A reconf
 
 
     propagationMode();
+//    splitTimeScale(50.0);
+ //*+    propagation2way();
+
+
+  
+ //*+ propagation2way();
+
+   mapDataToMotor(); // conversion en netphasei affichage
 
  
 
 
  
- formerFormerKey= formerKey;   
- formerKey=key;
+// formerFormerKey= formerKey;   
+// formerKey=key;
  }
+
 
 void addSignalOneAndTwoTerOriginal(){
     print (formerKeyMetro);
@@ -493,23 +502,23 @@ void splitTimeWithAbletonNoteBis() {
      
   //   TRY RANDOM OSCILLATOR BLOCKED
      
-       text (memoryi, 350, 100); // with key d it's better when memoryi as oscillator blocked doesn't change. 
+       text (" NoteBis " +memoryi, -350, 1200); // with key d it's better when memoryi as oscillator blocked doesn't change. 
      //  measure<361 && measure<278 &&
-      if ((  millis()>formerEvent[74]+500) &&  // wiat 200 ms before consideration of the next event 74. Here is note 74
-      ((note1>73 && note1<75 && velocity1>=1 && velocity1<=64)|| (note2>73 && note2<75 && velocity2>=1 && velocity2<=64)|| (note3>73 && note3<75 && velocity3>=1 && velocity3<=64) ||
-      (note4>73 && note4<75 && velocity4>=1 && velocity4<=64)|| (note5>73 && note5<75 && velocity5>=1 && velocity5<=64)|| (note6>73 && note6<75 && velocity6>=1 && velocity6<=64)
-      )) {
-        
+
+      if ( // millis()>formerEvent[74]+500) && 1==1
+        // wait 200 ms before consideration of the next event 74. Here is note 74
+     ((note1>73 && note1<75 && velocity1>=1 && velocity1<=64)|| (note2>73 && note2<75 && velocity2>=1 && velocity2<=64)|| (note3>73 && note3<75 && velocity3>=1 && velocity3<=64) ||
+      (note4>73 && note4<75 && velocity4>=1 && velocity4<=64)|| (note5>73 && note5<75 && velocity5>=1 && velocity5<=64)|| (note6>73 && note6<75 && velocity6>=1 && velocity6<=64))
+// || ((note1>74 && note1<76 && velocity1>=1 && velocity1<=64)|| (note2>74 && note2<76 && velocity2>=1 && velocity2<=64)|| (note3>74 && note3<76 && velocity3>=1 && velocity3<=64) ||
+  //   (note4>74 && note4<76 && velocity4>=1 && velocity4<=64)|| (note5>74 && note5<76 && velocity5>=1 && velocity5<=64)|| (note6>74 && note6<76 && velocity6>=1 && velocity6<=64))
+      
+      ) {
+        if (  millis()>formerEvent[74]+516)    {
       formerEvent[74]=millis(); // repeat above if formerEvent[74]+1000
-   
+    //   doZ=!doZ;
+      }
    //   oscillatorBlocked=6;  // used to phase shifiting from the oscillatorBlocked. Here 6 doesn't move and 7, 8 ... to 5 are shifted as k* 7, K* 8. See 'g' in phasePattern
-      key='d';  keyReleased();//i= 105
-      
-      
-      
-      // SIGNAL TO SPLIT?
-      
-      
+    
    if (doZ==false){  
          oscillatorChange=oscillatorChange+1;
          oscillatorChange=oscillatorChange%networkSize;
@@ -548,10 +557,18 @@ void splitTimeWithAbletonNoteBis() {
         
          }
        } 
-       
-          text ( "  splitTimeWithAbletonNoteBis " +  oscillatorChange, -500, 100);
-  
+     //   net.phase[i] += (networkSize- oscillatorBlocked-i)*0.01;
+       for (int i = 0; i < networkSize; i++) {
+      newPosF[i] += (networkSize- oscillatorBlocked-i)*0.01;
+       }
+   //  key='d';  keyReleased();//i= 105
+   //  phasePattern();
+   //  key='d';  keyReleased();//i= 105
+   //  phasePattern();
+   
+
     }
+      text ( "  splitTimeWithAbletonNoteBis " +   oscillatorChange + " oscillatorBlocked " + oscillatorBlocked +  " key " + key, -500, 100);
   }
  
  

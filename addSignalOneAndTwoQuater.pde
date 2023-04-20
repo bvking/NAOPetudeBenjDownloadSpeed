@@ -30,7 +30,9 @@ void propagationMode(){ // as addSignalOneAndTwoQuater() in NAOP
  
 // splitTimeScale(30.0); //  10.0= vitesse de propagation. On change de sens de ROTATION avec q et z.
  // splitTimeLfoScale();  // change de sens de PROPAGATION
-  splitIncomingSignal();
+  //***splitIncomingSignal();
+    splitTimeWithAbletonNoteBis(); // oscillator Change with note from Ableton
+
   propagation2way();
 
   mapDataToMotor(); // conversion en netphasei affichage
@@ -165,29 +167,29 @@ void splitTimeLfoScale() {  // change de sens de propagagtion.   ATTENTION dans 
        signalToSplit = map ( signal[3], 0, 1, -TWO_PI, TWO_PI);
         }
     else  {
-    signalToSplit= lfoPhase[3];
+       signalToSplit= lfoPhase[3];
     }
     
  
-  if (oldSignalToSplit> signalToSplit ) {
+     if (oldSignalToSplit> signalToSplit ) {
   //  key = 'q' ; // when signal goes down --> propagation FRONT SIDE
-  doZ=true;
+        doZ=true;
    timeLfo= map (signalToSplit, TWO_PI, -TWO_PI, 0, 1000);  //  if we have an oscillation as  lfoPhase[3]
     }
-  else if (oldSignalToSplit< signalToSplit ) { // on est dans cette configuration avec  signalToSplit= lfoPhase[1]
+     else if (oldSignalToSplit< signalToSplit ) { // on est dans cette configuration avec  signalToSplit= lfoPhase[1]
 //   key = 'z';  //  when signal goes down --> propagation BEHIND SIDE 
 //   key = 'q' ;  // propagation in on the same way
-  doZ=false;
-   timeLfo= map (signalToSplit, -TWO_PI, TWO_PI, 0, 1000);  // if we have an oscillation  lfoPhase[3]
+       doZ=false;
+    timeLfo= map (signalToSplit, -TWO_PI, TWO_PI, 0, 1000);  // if we have an oscillation  lfoPhase[3]
  //**   timeLfo= map (signalToSplit, 0, TWO_PI, 0, 1000);  // if we have a continuois from 0 to TWO_PI 
  //   timeLfo= map (signalToSplit, 0, 1, 0, 1000); //  if we have a continuois from 0 to TWO_PI from an other software
  
    }
 
-   int splitTimeLfo= int  (timeLfo%100);   // 100 is the size of the gate trigging the change of the ball 
-  if (doQ==true) {
+    int splitTimeLfo= int  (timeLfo%100);   // 100 is the size of the gate trigging the change of the ball 
+    if (doQ==true) {
        splitTimeLfo= int  (timeLfo%1000); 
-   }
+     }
   
 
    
