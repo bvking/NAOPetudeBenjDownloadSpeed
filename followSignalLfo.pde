@@ -115,52 +115,9 @@ if (formerDecayTime>decayTime){
   //******** Lock last oscillator to the lastPhase
   
    if (formerFormerKey  != '#' ) { //  works always
- //   if (formerFormerKey  != 'c' ) { // do not work
- //**    print ("  normalformerFormerKey not equal # " + frameCount + " lfoPhase[1] " + lfoPhase[1] + " lfoPhase[2] " + lfoPhase[2]);    println (   ); 
-       
+    
   int i;
   i= oscillatorChange;
-    
- 
- 
-   //   LFO[i] = lfoPhase[1]; 
-   //   LFO[i] =  map (signal[11], 0, 1, 0, PI/4);
-    
- //  LFO[i] = 1* map (0.025, 0, 1, 0, TWO_PI);  // CONSTANT SHIFT BETWEEN OSCILLATOR
- //        
- 
-    //           LFO[i] =  map (0.025, 0, 1, 0, TWO_PI);  // CONSTANT SHIFT BETWEEN OSCILLATOR
-
-      //     LFO[i] =  map (0.003, 0, 1, 0, TWO_PI);  // CONSTANT SHIFT BETWEEN OSCILLATOR
-  
-  // to CONTROL OMOTOR
-  
- 
- // ABOVE LFO on oscillatorChange
- // BELOW MOVE by ODD ?
- /*
-   if (LFO[oscillatorChange]<0 && phaseFollowLFO[oscillatorChange]<0 ) {        
-       LFO[oscillatorChange] =   phaseFollowLFO[oscillatorChange]-LFO[oscillatorChange]; 
-       dataMappedForMotor[oscillatorChange]= int (map (LFO[oscillatorChange], 0, -TWO_PI, numberOfStep, 0)); 
-
-       net.phase[oscillatorChange]= map (dataMappedForMotor[oscillatorChange], numberOfStep, 0, 0, -TWO_PI);
-  }
- 
-       
-   else if (LFO[oscillatorChange]>0 && phaseFollowLFO[oscillatorChange]>0 ) {      
-       LFO[oscillatorChange] = phaseFollowLFO[oscillatorChange]; // +LFO[oscillatorChange];
-       LFO[oscillatorChange] = LFO[oscillatorChange]%TWO_PI;
-       dataMappedForMotor[oscillatorChange]= (int) map (LFO[oscillatorChange], 0, TWO_PI, 0, numberOfStep);
-
-       net.phase[oscillatorChange]= map (dataMappedForMotor[oscillatorChange], 0, numberOfStep, 0, TWO_PI);
-    
-    }
- */  
-    
-  }
-
-//***    println (" newPosXaddoscillatorChange] ",  oscillatorChange, " ",  newPosXaddSignal[oscillatorChange] );
-
 
   
   int j;  
@@ -218,47 +175,27 @@ if (formerDecayTime>decayTime){
    }
   
    
- //  else key='&';
-   
-  //**    print (" phaseKeptAtChange[o] ",  oscillatorChange, " ",  phaseKeptAtChange[oscillatorChange] );
-      
-  //***    println (  " phaseKeptAtChange[k] " , k, " ",  phaseKeptAtChange[k] , " phaseKeptAtChange[j] " , j, " ",  phaseKeptAtChange[j] );
-      
-  //     LFO[m] = (LFO[m]+map (signal[2], 0, 1, 0, PI/4))%TWO_PI;
-  //**     dataMappedForMotor[m]= (int) map (LFO[m], 0, TWO_PI, 0, numberOfStep);
-       
-   //**    net.phase[m]= map (dataMappedForMotor[m], 0, numberOfStep, 0, TWO_PI);
-      
-    //   LFO[l] = phaseKeptAtChange[l];
+
        LFO[l] = LFO[l]%TWO_PI;
        dataMappedForMotor[l]= (int) map (LFO[l], 0, TWO_PI, 0, numberOfStep);
             
        net.phase[l]= map (dataMappedForMotor[l], 0, numberOfStep, 0, TWO_PI);
  
-      
-//***        LFO[k] = LFO[j]+PI/(15-j)+map (signal[3], 0, 1, 0, TWO_PI);
-  //    LFO[k] = phaseKeptAtChange[k]+PI/8;  les redressent de temps en temps
-  //***     LFO[k] = LFO[k]%TWO_PI;
-  //***     dataMappedForMotor[k]= (int) map (LFO[k], 0, TWO_PI, 0, numberOfStep);
-  
-  //****        LFO[k] = LFO[j]+PI/(15-k)+map (signal[3], 0, 1, 0, TWO_PI);
-  //     LFO[k] = phaseKeptAtChange[k]-PI/8; // ADD SOME SPACE WITH GENERAL ROTATION
- //   LFO[k] = phaseKeptAtChange[k]; //DO NO THING
+
 
        LFO[k] = LFO[k]%TWO_PI;
        dataMappedForMotor[k]= (int) map (LFO[k], 0, TWO_PI, 0, numberOfStep);
  
       
        net.phase[k]= map (dataMappedForMotor[k], 0, numberOfStep, 0, TWO_PI);
-      
-  ///*****     LFO[j] = phaseKeptAtChange[j]+PI/(15-j)+map (signal[3], 0, 1, 0, TWO_PI);
-    //**   LFO[j] = phaseKeptAtChange[j]-PI/8;  //ADD SOME SPACE WITH GENERAL ROTATION
-  //*** LFO[j] = phaseKeptAtChange[j];  //DO NO THING
+
+
        LFO[j] = LFO[j]%TWO_PI;
        dataMappedForMotor[j]= (int) map (LFO[j], 0, TWO_PI, 0, numberOfStep);
   //     println (" phaseKeptAtChange[oscillatorChange] ", oscillatorChange, " " ,  phaseKeptAtChange[oscillatorChange]);
        net.phase[j]= map (dataMappedForMotor[j], 0, numberOfStep, 0, TWO_PI);
-       
+
+     }   
       
   //******** END  Black last oscillator to the lastPhase
  // key ='#'; 
