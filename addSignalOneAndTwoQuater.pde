@@ -28,12 +28,14 @@ void propagationMode(){ // as addSignalOneAndTwoQuater() in NAOP
     break;
     }
  
-// splitTimeScale(30.0); //  10.0= vitesse de propagation. On change de sens de ROTATION avec q et z.
+ splitTimeScale(30.0); //  10.0= vitesse de propagation. On change de sens de ROTATION avec q et z.
  // splitTimeLfoScale();  // change de sens de PROPAGATION
   //***splitIncomingSignal();
-    splitTimeWithAbletonNoteBis(); // oscillator Change with note from Ableton
+  //*+++  splitTimeWithAbletonNoteBis(); // oscillator Change with note from Ableton
 
-  propagation2way();
+ // propagation2way();
+
+  propagation2wayXP();
 
   mapDataToMotor(); // conversion en netphasei affichage
 
@@ -109,7 +111,8 @@ void propagationMode(){ // as addSignalOneAndTwoQuater() in NAOP
 
    //  phaseKeptAtChange[oscillatorChange]=newPosXaddSignal[oldOscillatorChange];
     //  phaseKeptAtChange[oscillatorChange]=phaseKeptAtChange[oldOscillatorChange];
-  phaseKeptAtChange[oldOscillatorChange]=               LFO[oscillatorChange];
+//  phaseKeptAtChange[oscillatorChange]=               LFO[oldOscillatorChange]- PI /(networkSize*4);
+// phaseKeptAtChange[oscillatorChange]=               LFO[oscillatorChange]- PI /(networkSize*8);
         
    /*
     if (doZ==true){ 
@@ -132,12 +135,17 @@ void propagationMode(){ // as addSignalOneAndTwoQuater() in NAOP
 */
 
     if (doZ==true){ 
-
-       LFO[oscillatorChange] =phaseKeptAtChange[oscillatorChange]+QUARTER_PI*1/2 ;  // on ajoute 
+    //   
+       LFO[oscillatorChange] =LFO[oscillatorChange]+ PI /(networkSize*2)  ;// QUARTER_PI*1/2PI /(networkSize*2)  // on ajoute netwo
        dataMappedForMotor[oscillatorChange]= (int) map (LFO[oscillatorChange], 0, TWO_PI , 0, numberOfStep);  // 
-       println (" true phaseKeptAtChange[oscillatorChange] ", oscillatorChange, " " ,  phaseKeptAtChange[oldOscillatorChange]);
- 
        newPosXaddSignal[oscillatorChange]= map (dataMappedForMotor[oscillatorChange], 0, numberOfStep, 0, TWO_PI);
+
+       phaseKeptAtChange[oscillatorChange]= LFO[oscillatorChange]- PI /(networkSize*2) ;
+       dataMappedForMotor[oldOscillatorChange]= (int) map (phaseKeptAtChange[oldOscillatorChange], 0, TWO_PI , 0, numberOfStep);  // 
+       
+       println (" true phaseKeptAtChange[oscillatorChange] ", oscillatorChange, " " ,  phaseKeptAtChange[oldOscillatorChange]);
+        newPosXaddSignal[oldOscillatorChange]= map (dataMappedForMotor[oldOscillatorChange], 0, numberOfStep, 0, TWO_PI);
+       
      }
      
     if (doZ==false){ 
@@ -239,7 +247,7 @@ void splitTimeLfoScale() {  // change de sens de propagagtion.   ATTENTION dans 
          
     if (doZ==false){  // case q
   if (oldSplitTimeLfo>splitTimeLfo){
- 
+    
       oldOscillatorChange=oscillatorChange;
       oscillatorChange=oscillatorChange+1;
    } 
